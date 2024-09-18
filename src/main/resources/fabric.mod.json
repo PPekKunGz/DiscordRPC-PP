@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "ppekkungz_rpc",
+  "version": "${version}",
+  "name": "DiscordRPC-PP",
+  "description": "java discord rpc, Make this for Minecraft mod by. PPekKunGz",
+  "authors": [
+    "PPekKunGzDev"
+  ],
+  "contact": {
+    "repo": "https://github.com/ppekk/DiscordRPC-PP"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "net.dimension.ppekkungz_rpc.RPCClient"
+    ],
+    "main": [
+      "net.dimension.ppekkungz_rpc.RPCUtils"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
