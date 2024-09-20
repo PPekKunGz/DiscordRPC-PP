@@ -1,5 +1,7 @@
 # DiscordRPC-PP
 Public project can reuse & build for you, but give my credit.
+- [Modrinth](https://modrinth.com/mod/the-discordrpc)
+- [Release](https://github.com/PPekKunGz/DiscordRPC-PP/releases)
 
 ## Java-Discord-RPC
 [java-discord-rpc](https://github.com/MinnDevelopment/java-discord-rpc/)
