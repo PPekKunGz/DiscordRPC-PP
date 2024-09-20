@@ -11,23 +11,10 @@ base {
 }
 
 repositories {
-    maven {
-        url 'https://jitpack.io'
-    }
-}
+    jcenter()
 
-//repositories {
-//    maven { url "https://jitpack.io" } // JitPack repository for GitHub-hosted projects
-//    maven { url "https://maven.fabricmc.net/" } // Fabric's Maven repository
-//    mavenCentral() // Maven Central repository for widely used Java libraries
-//    maven {
-//        url "https://maven.pkg.github.com/MinnDevelopment/java-discord-rpc"
-//        credentials {
-//            username = "PPekKunGz"
-//            password = "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"
-//        }
-//    }
-//}
+    maven { url 'https://jitpack.io' }
+}
 
 dependencies {
     // To change the versions see the gradle.properties file
@@ -37,8 +24,9 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    implementation 'com.github.MinnDevelopment:java-discord-rpc:v2.0.1' // Adjust the version as needed
-    implementation 'org.json:json:20230618'
+    include(implementation ('club.minnced:discord-rpc-release:v3.3.0'))
+    include(implementation("com.github.MinnDevelopment:java-discord-rpc:v2.0.2"))
+    implementation 'com.google.code.gson:gson:2.11.0'
 }
 
 processResources {

@@ -8,9 +8,10 @@
     "PPekKunGzDev"
   ],
   "contact": {
-    "repo": "https://github.com/ppekk/DiscordRPC-PP"
+    "repo": "https://github.com/PPekKunGz/DiscordRPC-PP"
   },
   "license": "MIT",
+  "icon": "logo.png",
   "environment": "client",
   "entrypoints": {
     "client": [

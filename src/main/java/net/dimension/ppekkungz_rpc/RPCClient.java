@@ -6,7 +6,8 @@ import club.minnced.discord.rpc.DiscordRichPresence;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.Minecraft;
 import com.mojang.authlib.GameProfile;
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +22,8 @@ public class RPCClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         try {
-            URL url = new URL("http://localhost:3232/rpc/init"); //todo: can use https://example.com/rpc/init
+//            URL url = new URL("http://localhost:3232/rpc/init"); //todo: can use https://example.com/rpc/init
+            URL url = new URL("https://launcher.xn--12cgj3ga1lya4d6c.xn--o3cw4h/rpc/init"); //todo: can use https://example.com/rpc/init
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
@@ -34,14 +36,14 @@ public class RPCClient implements ClientModInitializer {
             in.close();
             con.disconnect();
 
-            JSONObject jsonResponse = new JSONObject(content.toString());
-            String applicationId = jsonResponse.getString("applicationId");
-            boolean autoRegister = jsonResponse.getBoolean("autoRegister");
-            String steamId = jsonResponse.getString("steamId");
-            String smallImageKey = jsonResponse.getString("smallImageKey");
-            String details = jsonResponse.getString("details");
-            String defaultState = jsonResponse.getString("state");
-            boolean useUsername = jsonResponse.getBoolean("useUsername");
+            JsonObject jsonResponse = JsonParser.parseString(content.toString()).getAsJsonObject();
+            String applicationId = jsonResponse.get("applicationId").getAsString();
+            boolean autoRegister = jsonResponse.get("autoRegister").getAsBoolean();
+            String steamId = jsonResponse.get("steamId").getAsString();
+            String smallImageKey = jsonResponse.get("smallImageKey").getAsString();
+            String details = jsonResponse.get("details").getAsString();
+            String defaultState = jsonResponse.get("state").getAsString();
+            boolean useUsername = jsonResponse.get("useUsername").getAsBoolean();
 
             Minecraft client = Minecraft.getInstance();
             GameProfile profile = client.getUser().getGameProfile();
